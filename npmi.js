@@ -2,6 +2,7 @@ var npm    = require('npm');
 var fs     = require('fs');
 var path   = require('path');
 var semver = require('semver');
+var log    = require('npm/node_modules/npmlog');
 
 var LOAD_ERR    = 'NPM_LOAD_ERR',
     INSTALL_ERR = 'NPM_INSTALL_ERR',
@@ -194,5 +195,8 @@ npmi.INSTALL_ERR = INSTALL_ERR;
 npmi.VIEW_ERR    = VIEW_ERR;
 
 npmi.NPM_VERSION = npm.version;
+
+// Expose log to enable progress updates
+npmi.log         = log
 
 module.exports = npmi;
